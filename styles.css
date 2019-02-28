@@ -17,6 +17,12 @@ nav-button{
   color: #211f20;
 
 }
+link{
+  font-family: "Prestige"; font-size:3vw; font-style: normal; 
+  font-variant: normal; text-align:center;
+  color: #211f20;
+
+}
 
 .center{
 	display: block;
