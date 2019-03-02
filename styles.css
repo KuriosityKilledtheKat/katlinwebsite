@@ -24,13 +24,29 @@ h2{
 }
 
 nav-button{
-  font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
+  font-family: "Prestige Elite Std"; font-size:5vw; font-style: normal; 
   font-variant: normal; text-align:center;
   color: #211f20;
+  padding-top:0;
+padding-right:0.1vw;
+padding-bottom:0;
+padding-left:0.1vw;
 
 }
+
 link{
-  font-family: "Prestige"; font-size:3vw; font-style: normal; 
+  font-family: "Prestige Elite Std"; font-size:0.7vw; font-style: normal; 
+  font-variant: normal; text-align:center;
+  color: #211f20;
+  padding-top:0;
+padding-right:300px;
+padding-bottom:0;
+padding-left:200px;
+
+}
+
+a{
+  font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
   font-variant: normal; text-align:center;
   color: #211f20;
 
