@@ -1,18 +1,30 @@
 body {
-    background-color:#9D9B9B;
+    background-color:#D6D5D5;
     height:100%;
     width:100%;
 
 }
 
-h1{
+bighead{
   font-family: "Didot"; font-size: 8vw; font-style: normal; 
   font-variant: normal;  text-align:center;
-  color: #211f20;
+  color: #464646;
+}
+
+h1{
+  font-family: "Didot"; font-size: 6vw; font-style: normal; 
+  font-variant: normal;  text-align:center;
+  color: #464646;
+}
+
+h2{
+  font-family: "Didot"; font-size: 4vw; font-style: normal; 
+  font-variant: normal;  text-align:center;
+  color: #464646;
 }
 
 nav-button{
-  font-family: "Prestige"; font-size:3vw; font-style: normal; 
+  font-family: "Prestige Elite STD"; font-size:3vw; font-style: normal; 
   font-variant: normal; text-align:center;
   color: #211f20;
 
