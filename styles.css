@@ -8,13 +8,13 @@ body {
 bighead{
   font-family: "Didot"; font-size: 8vw; font-style: normal; 
   font-variant: normal;  text-align:center;
-  color: #464646;
+  color: #8B8B8B;
 }
 
 h1{
   font-family: "Didot"; font-size: 6vw; font-style: normal; 
   font-variant: normal;  text-align:center;
-  color: ##707070;
+  color: #8B8B8B;
 }
 
 h2{
@@ -57,4 +57,12 @@ a{
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+#footer {
+    clear: both;
+    position: relative;
+    height: 40px;
+    margin-top: -40px;
+    font-size:1vw
 }
