@@ -62,7 +62,7 @@ h4{
 }
 p{
   font-family: "Didot"; font-size:1.5vw; font-style: normal; 
-  font-variant: normal; text-align:left; padding-left: 4vw;
+  font-variant: normal; text-align:left; padding-left: 4vw; padding-right: 4vw;
   color: #828A95;
 }
 .center{
@@ -88,5 +88,12 @@ p{
    background-image: linear-gradient(to bottom right, #D5C9DF, #EF629F)
     background: #D5C9DF;
     display: inline-block;
-    padding: 10px;
+    padding-left: 5vw; padding-right: 5vw;;
+}
+body.bio{
+  background-image: url("tunisia-kat-lin-writer-photographer copy.jpg");
+   background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    opacity:50%;
 }
