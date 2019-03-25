@@ -49,9 +49,22 @@ a{
   font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
   font-variant: normal; text-align:center;
   color: #211f20;
-
 }
-
+h3{
+  font-family: "Didot"; font-size:2vw; font-style: normal; 
+  font-variant: normal; text-align:left; padding-left: 4vw;
+  color: #211f20;
+}
+h4{
+  font-family: "Didot"; font-size:1.5vw; font-style: normal; 
+  font-variant: normal; text-align:left; padding-left: 4vw;
+  color: #211f20;
+}
+p{
+  font-family: "Didot"; font-size:1.5vw; font-style: normal; 
+  font-variant: normal; text-align:left; padding-left: 4vw;
+  color: #211f20;
+}
 .center{
 	display: block;
   margin-left: auto;
@@ -65,4 +78,14 @@ a{
     height: 40px;
     margin-top: -40px;
     font-size:1vw
+}
+
+#link-container {
+    text-align: center;
+}
+#link {
+   background-image: linear-gradient(to bottom right, #D5C9DF, #EF629F)
+    background: #D5C9DF;
+    display: inline-block;
+    padding: 10px;
 }
