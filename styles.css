@@ -50,6 +50,7 @@ a{
   font-variant: normal; text-align:center;
   color: #211f20;
 }
+
 h3{
   font-family: "Didot"; font-size:2vw; font-style: normal; 
   font-variant: normal; text-align:left; padding-left: 4vw;
@@ -60,6 +61,7 @@ h4{
   font-variant: normal; text-align:left; padding-left: 4vw;
   color: #211f20;
 }
+
 p{
   font-family: "Didot"; font-size:1.5vw; font-style: normal; 
   font-variant: normal; text-align:left; padding-left: 4vw; padding-right: 4vw;
@@ -94,8 +96,19 @@ p{
 #link-container {
     text-align: center;
 }
-#mainnav{
+
+#mainlink{
+  font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
+  font-variant: normal; text-align:center;
+  color: #211f20;
     background: white;
+    display: inline-block;
+    padding-left: 5vw; padding-right: 5vw;}
+
+#biolink{
+    font-family: "Didot"; font-size:3vw; font-style: normal; 
+  font-variant: normal; text-align:center;
+  color: #211f20;
     display: inline-block;
     padding-left: 5vw; padding-right: 5vw;}
 
@@ -104,16 +117,31 @@ p{
     display: inline-block;
     padding-left: 5vw; padding-right: 5vw;
 }
+
 td{
     background-color:black;
     color:white;
 }
+
 .link:hover{
-    background-color:#B5ADB7;
+    
+    
+    color:white;
 }
 
 
-
+.mainlink:hover{
+    
+   /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
+    background-color:#EFEFEF;
+    size:;
+}
+.bioz:hover{
+  
+   /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
+    background-color:red;
+    size:;
+}
 
 
 
