@@ -118,10 +118,7 @@ p{
     padding-left: 5vw; padding-right: 5vw;
 }
 
-td{
-    background-color:black;
-    color:white;
-}
+
 
 .link:hover{
     
@@ -134,16 +131,20 @@ td{
     
    /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
     background-color:#EFEFEF;
-    size:;
 }
-.bioz:hover{
+h1:hover{
   
    /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
-    background-color:red;
-    size:;
+    
+    size:4vw;
 }
 
 
+.writinglink:hover{
+      font-color:white;
+      background-color:black;
+
+}
 
 
 
