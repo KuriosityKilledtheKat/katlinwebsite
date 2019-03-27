@@ -5,11 +5,7 @@ body {
 
 }
 
-bighead{
-  font-family: "Didot"; font-size: 8vw; font-style: normal; 
-  font-variant: normal;  text-align:center;
-  color: #8B8B8B;
-}
+
 
 h1{
   font-family: "Didot"; font-size: 6vw; font-style: normal; 
@@ -34,14 +30,22 @@ padding-left:0.1vw;
 
 }
 
+/* -------- OVERALLL LINK SETTINGS   -------------*/ 
+
 link{
   font-family: "Prestige Elite Std"; font-size:0.7vw; font-style: normal; 
   font-variant: normal; text-align:center;
   color: #211f20;
   padding-top:0;
-padding-right:300px;
-padding-bottom:0;
-padding-left:200px;
+  padding-right:300px;
+  padding-bottom:0;
+  padding-left:200px;
+}
+
+a.mainnav{
+    font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
+    font-variant: normal; text-align:center;
+    color: #211f20;
 
 }
 
@@ -50,6 +54,25 @@ a{
   font-variant: normal; text-align:center;
   color: #211f20;
 }
+a.writingnav{
+  font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
+  font-variant: normal; text-align:center;
+  color: #211f20;
+}
+
+a.bodytext{
+  font-family: "Didot"; font-size:1.5vw; font-style: normal; 
+  font-variant: normal; text-align:left; padding-left: 4vw; padding-right: 4vw;
+  color: #828A95;
+}
+.bodylink:hover{
+  
+}
+
+
+
+/* heading styles */
+
 
 h3{
   font-family: "Didot"; font-size:2vw; font-style: normal; 
@@ -66,6 +89,9 @@ p{
   font-family: "Didot"; font-size:1.5vw; font-style: normal; 
   font-variant: normal; text-align:left; padding-left: 4vw; padding-right: 4vw;
   color: #828A95;
+}
+p.a{
+  text-indent:1.5vw;
 }
 .center{
 	display: block;
@@ -103,7 +129,8 @@ p{
   color: #211f20;
     background: white;
     display: inline-block;
-    padding-left: 5vw; padding-right: 5vw;}
+    padding-left: 5vw; padding-right: 5vw;
+  }
 
 #biolink{
     font-family: "Didot"; font-size:3vw; font-style: normal; 
@@ -132,7 +159,8 @@ p{
    /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
     background-color:#EFEFEF;
 }
-h1:hover{
+
+.h1:hover{
   
    /* background-image: linear-gradient(to bottom right, #E5D6FF, #D6FBFF);*/
     
@@ -141,17 +169,18 @@ h1:hover{
 
 
 .writinglink:hover{
-      font-color:white;
-      background-color:black;
+    color:white;
+     background-color:#EFEFEF;
 
 }
 
+/* PARAGRAPH STYLES */
 
 
 
 /* BACKGROUNDS */
 body.bio{
-  background-image: url("tunisia-kat-lin-writer-photographer copy.jpg");
+ 
    background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
