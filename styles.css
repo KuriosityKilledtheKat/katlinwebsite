@@ -127,6 +127,11 @@ p.writing{
     text-align: center;
 }
 
+#writinglink{
+padding-right:4vw;
+padding-left:4vw;
+}
+
 #mainlink{
   font-family: "Prestige Elite Std"; font-size:3vw; font-style: normal; 
   font-variant: normal; text-align:center;
@@ -174,7 +179,8 @@ p.writing{
 
 .writinglink:hover{
     color:white;
-     background-color:#EFEFEF;
+    background-color:#EFEFEF;
+
 
 }
 
