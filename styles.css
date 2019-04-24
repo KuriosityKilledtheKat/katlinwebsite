@@ -236,9 +236,12 @@ padding-left:4vw;
   height: auto;
   
 }
-.responsive{
+.responsivegif {
   width: auto;
-  height: 100%;
+  height: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* BACKGROUNDS */
