@@ -236,6 +236,10 @@ padding-left:4vw;
   height: auto;
   
 }
+.responsive{
+  width: auto;
+  height: 100%;
+}
 
 /* BACKGROUNDS */
 body.bio{
