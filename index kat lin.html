@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>kat lin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f4ede0;
+    cursor: none;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Faint ghost of the name, always visible */
+  .ghost {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(40px, 7vw, 90px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: rgba(61, 82, 38, 0.045);
+    user-select: none;
+  }
+
+  .cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: rgba(167, 201, 136, 0.85);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    box-shadow:
+      0 0 16px rgba(167, 201, 136, 0.6),
+      0 0 32px rgba(167, 201, 136, 0.3);
+    mix-blend-mode: multiply;
+  }
+</style>
+</head>
+<body>
+
+<div class="ghost">kat lin</div>
+<canvas id="canvas"></canvas>
+<div class="cursor" id="cursor"></div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const cursor = document.getElementById('cursor');
+const ctx = canvas.getContext('2d');
+
+let W = window.innerWidth;
+let H = window.innerHeight;
+let DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+function resize() {
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W * DPR;
+  canvas.height = H * DPR;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(DPR, DPR);
+}
+resize();
+
+const textCanvas = document.createElement('canvas');
+const textCtx = textCanvas.getContext('2d');
+const maskCanvas = document.createElement('canvas');
+const maskCtx = maskCanvas.getContext('2d');
+
+function setupOffscreens() {
+  textCanvas.width = W * DPR;
+  textCanvas.height = H * DPR;
+  maskCanvas.width = W * DPR;
+  maskCanvas.height = H * DPR;
+  textCtx.setTransform(1, 0, 0, 1, 0, 0);
+  textCtx.scale(DPR, DPR);
+  maskCtx.setTransform(1, 0, 0, 1, 0, 0);
+  maskCtx.scale(DPR, DPR);
+  drawName();
+}
+
+function drawName() {
+  textCtx.clearRect(0, 0, W, H);
+  const fontSize = Math.min(W * 0.07, 90);
+  textCtx.font = `900 ${fontSize}px Fraunces, serif`;
+  textCtx.fillStyle = '#3d5226';
+  textCtx.textAlign = 'center';
+  textCtx.textBaseline = 'middle';
+  textCtx.fontVariationSettings = '"opsz" 144';
+  textCtx.fillText('kat lin', W / 2, H / 2);
+}
+
+setupOffscreens();
+
+window.addEventListener('resize', () => {
+  resize();
+  setupOffscreens();
+  setupGlow();
+});
+
+let mouseX = W / 2;
+let mouseY = H / 2;
+let mouseActive = false;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  mouseActive = true;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+document.addEventListener('mouseleave', () => {
+  cursor.style.opacity = '0';
+  mouseActive = false;
+});
+
+document.addEventListener('mouseenter', () => {
+  cursor.style.opacity = '1';
+  mouseActive = true;
+});
+
+document.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const t = e.touches[0];
+  mouseX = t.clientX;
+  mouseY = t.clientY;
+  mouseActive = true;
+}, { passive: false });
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Faster fade so trail fully clears in ~1.5s
+  maskCtx.globalCompositeOperation = 'destination-out';
+  maskCtx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+  maskCtx.fillRect(0, 0, W, H);
+  maskCtx.globalCompositeOperation = 'source-over';
+
+  if (mouseActive) {
+    const radius = 90;
+    const grad = maskCtx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, radius);
+    grad.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
+    grad.addColorStop(0.5, 'rgba(255, 255, 255, 0.25)');
+    grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    maskCtx.fillStyle = grad;
+    maskCtx.beginPath();
+    maskCtx.arc(mouseX, mouseY, radius, 0, Math.PI * 2);
+    maskCtx.fill();
+
+    const core = maskCtx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 30);
+    core.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+    core.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    maskCtx.fillStyle = core;
+    maskCtx.beginPath();
+    maskCtx.arc(mouseX, mouseY, 30, 0, Math.PI * 2);
+    maskCtx.fill();
+  }
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.drawImage(textCanvas, 0, 0, W, H);
+  ctx.globalCompositeOperation = 'destination-in';
+  ctx.drawImage(maskCanvas, 0, 0, W, H);
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+animate();
+
+const glowCanvas = document.createElement('canvas');
+const glowCtx = glowCanvas.getContext('2d');
+glowCanvas.style.position = 'fixed';
+glowCanvas.style.inset = '0';
+glowCanvas.style.width = '100%';
+glowCanvas.style.height = '100%';
+glowCanvas.style.pointerEvents = 'none';
+glowCanvas.style.zIndex = '5';
+glowCanvas.style.mixBlendMode = 'multiply';
+document.body.appendChild(glowCanvas);
+
+function setupGlow() {
+  glowCanvas.width = W * DPR;
+  glowCanvas.height = H * DPR;
+  glowCtx.setTransform(1, 0, 0, 1, 0, 0);
+  glowCtx.scale(DPR, DPR);
+}
+setupGlow();
+
+function animateGlow() {
+  requestAnimationFrame(animateGlow);
+
+  // Glow fades fully in ~2s
+  glowCtx.globalCompositeOperation = 'destination-out';
+  glowCtx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+  glowCtx.fillRect(0, 0, W, H);
+  glowCtx.globalCompositeOperation = 'source-over';
+
+  if (mouseActive) {
+    const r = 120;
+    const g = glowCtx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, r);
+    g.addColorStop(0, 'rgba(180, 210, 150, 0.18)');
+    g.addColorStop(0.5, 'rgba(190, 215, 160, 0.08)');
+    g.addColorStop(1, 'rgba(200, 220, 170, 0)');
+    glowCtx.fillStyle = g;
+    glowCtx.beginPath();
+    glowCtx.arc(mouseX, mouseY, r, 0, Math.PI * 2);
+    glowCtx.fill();
+  }
+}
+
+animateGlow();
+</script>
+
+</body>
+</html>
